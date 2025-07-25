@@ -61,10 +61,10 @@ springdoc:
     path: /swagger-ui.html
 
 twilio:
-  account-sid: AC797bd111aebe4b5511ec99665cee1b00
-  auth-token:   UBCEE2VR8BBS2FR5BFHPWDVS
-  base-url:     https://api.twilio.com/2010-04-01/Accounts/AC797bd111aebe4b5511ec99665cee1b00
-  whatsapp-from: whatsapp:+14155238886
+  account-sid: TWILIO_ACCOUNT_SID
+  auth-token:   TWILIO_AUTH_TOKEN
+  base-url:
+  whatsapp-from:
 
 
 management:
