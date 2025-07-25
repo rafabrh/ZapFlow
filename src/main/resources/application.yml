@@ -61,8 +61,8 @@ springdoc:
     path: /swagger-ui.html
 
 twilio:
-  account-sid: TWILIO_ACCOUNT_SID
-  auth-token:   TWILIO_AUTH_TOKEN
+  account-sid: ${TWILIO_ACCOUNT_SID}
+  auth-token:   ${TWILIO_AUTH_TOKEN}
   base-url:
   whatsapp-from:
 
