@@ -1,4 +1,5 @@
 package com.zapflow.integration.whatsapp;
 
-public class WhatsAppProviderClient {
+public interface WhatsAppProviderClient {
+    void sendMessage(String to, String text);
 }

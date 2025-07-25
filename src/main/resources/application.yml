@@ -1,0 +1,73 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/zapFlow
+    username: postgres
+    password: abc123
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+  kafka:
+    bootstrap-servers: localhost:9092
+
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+    admin:
+      auto-create: true
+
+
+    consumer:
+      group-id: zapflow-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted-packages: '*'
+
+
+
+#  redis:
+#    host: localhost
+#    port: 6379
+
+#  security:
+#    oauth2:
+#      resourceserver:
+#        jwt:
+#          jwk-set-uri: https://your-auth-server/.well-known/jwks.json
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+twilio:
+  account-sid: AC797bd111aebe4b5511ec99665cee1b00
+  auth-token:   UBCEE2VR8BBS2FR5BFHPWDVS
+  base-url:     https://api.twilio.com/2010-04-01/Accounts/AC797bd111aebe4b5511ec99665cee1b00
+  whatsapp-from: whatsapp:+14155238886
+
+
+management:
+  health:
+    redis:
+      enabled: false
